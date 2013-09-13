@@ -1,14 +1,16 @@
 import sys
+import pdb
 import pygame
-from pygame.locals import *
+import crawler
 
-SIZE = WIDTH, HEIGHT = 640,480
+from pygame.locals import *
+from crawler.locals import *
 
 def main():
   pygame.init()
-  window = pygame.display.set_mode(SIZE)
   pygame.display.set_caption("Dung crawler")
-  pygame.mouse.set_visible(False)
+  window = pygame.display.set_mode(SCR_SIZE)
+  map_01 = crawler.map.Map()
 
   while True:
     for event in pygame.event.get():
@@ -17,6 +19,8 @@ def main():
       elif event.type == KEYDOWN:
         if event.key == K_ESCAPE:
           return
+      else:
+        pass
     pygame.display.update()
 
 if __name__ == '__main__':
