@@ -10,7 +10,9 @@ def main():
   pygame.init()
   pygame.display.set_caption("Dung crawler")
   window = pygame.display.set_mode(SCR_SIZE)
+  screen = pygame.display.get_surface()
   map_01 = crawler.map.Map()
+  renderer = crawler.renderer.Renderer(screen, map_01)
 
   while True:
     for event in pygame.event.get():
@@ -22,6 +24,7 @@ def main():
       else:
         pass
     pygame.display.update()
+    renderer.render()
 
 if __name__ == '__main__':
     main()
