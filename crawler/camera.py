@@ -1,7 +1,5 @@
 import pdb
-import pygame
-
-import renderer
+import math
 
 class Camera(object):
   def __init__(self, x, y, dirx, diry, planex, planey):
