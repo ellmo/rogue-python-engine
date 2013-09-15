@@ -4,3 +4,4 @@ import camera
 import renderer
 import texture
 import tile
+import sprite
