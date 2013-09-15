@@ -15,8 +15,8 @@ class Map(object):
 
   @property
   def tiles(self):
-      return self._tiles
+    return self._tiles
   @tiles.setter
   def tiles(self, value):
-      self._tiles = value
+    self._tiles = value
 

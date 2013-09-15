@@ -11,24 +11,24 @@ class Tile(object):
 
   @property
   def solid(self):
-      return self._solid
+    return self._solid
   @solid.setter
   def solid(self, value):
-      self._solid = value
+    self._solid = value
 
   @property
   def walkthru(self):
-      return self._walkthru
+    return self._walkthru
   @walkthru.setter
   def walkthru(self, value):
-      self._walkthru = value
+    self._walkthru = value
 
   @property
   def texture(self):
-      return self._texture
+    return self._texture
   @texture.setter
   def texture(self, value):
-      self._texture = value
+    self._texture = value
 
 def create_based_on_number(number):
   if number == 0:

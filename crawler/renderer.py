@@ -17,11 +17,11 @@ class Renderer(object):
 
   @property
   def surface(self):
-      return self._surface
+    return self._surface
 
   @property
   def camera(self):
-      return self._camera
+    return self._camera
 
   def render(self):
     self._surface.blit(self._background, (0, 0))

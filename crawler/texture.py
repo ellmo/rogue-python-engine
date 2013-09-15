@@ -9,10 +9,10 @@ class Texture(object):
 
   @property
   def image(self):
-      return self._image
+    return self._image
   @image.setter
   def image(self, value):
-      self._image = value
+    self._image = value
 
   def convert(self):
     self._image.convert()
