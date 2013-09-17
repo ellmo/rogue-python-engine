@@ -3,3 +3,6 @@ class CrawlerError(Exception):
 
 class NoPlayerStartError(CrawlerError):
   pass
+
+class MultiplePlayerStartError(CrawlerError):
+  pass
