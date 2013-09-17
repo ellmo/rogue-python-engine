@@ -6,8 +6,8 @@ import map
 
 class Renderer(object):
   def __init__(self, surface, map):
+    self._camera = camera.Camera(map.start_position, 0, 0, 0, 0)
     self._surface = surface
-    # self._camera = camera.Camera(self)
     self._width = self._surface.get_width()
     self._height = self._surface.get_height()
     self._background = pygame.transform.scale(
