@@ -1,4 +1,5 @@
 import camera
+import errors
 import locals
 import map
 import renderer
