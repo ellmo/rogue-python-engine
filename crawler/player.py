@@ -39,14 +39,17 @@ class Player(object):
 
   def move(self, forward, left):
     if left is 0:
-      self._x += self.dirx * forward
-      self._y += self.diry * forward
+      new_x = self._x + self.dirx * forward
+      new_y = self._y + self.diry * forward
     else:
-      self._x += self.diry * left
-      self._y -= self.dirx * left
-    self._camera.x = self._x
-    self._camera.y = self._y
-    print "player moved to {0}, {1}".format(self._x, self._y)
+      new_x = self._x + self.diry * left
+      new_y = self._y - self.dirx * left
+    if self._crawler_map.tiles[int(new_y)][int(new_x)].walkthru:
+      self._x = new_x
+      self._y = new_y
+      self._camera.x = new_x
+      self._camera.y = new_y
+      print "player moved to {0}, {1}".format(self._x, self._y)
 
   def rotate(self, direction):
     self._camera.rotate(direction)
