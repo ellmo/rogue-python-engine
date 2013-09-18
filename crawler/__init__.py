@@ -2,6 +2,7 @@ import camera
 import crawler_map
 import errors
 import locals
+import player
 import renderer
 import sprite
 import texture

@@ -15,7 +15,8 @@ def main():
   screen = pygame.display.get_surface()
 
   map_01 = crawler.crawler_map.CrawlerMap()
-  renderer = crawler.renderer.Renderer(screen, map_01)
+  player = crawler.player.Player(map_01, (0, -1))
+  renderer = crawler.renderer.Renderer(screen, map_01, player.camera)
 
   while True:
     game_clock.tick(60)

@@ -1,9 +1,9 @@
 class Camera(object):
-  def __init__(self, position, dirx, diry):
+  def __init__(self, position, direction_vector):
     self._x = int(position[0])
     self._y = int(position[1])
-    self._dirx = float(dirx)
-    self._diry = float(diry)
+    self._dirx = float(direction_vector[0])
+    self._diry = float(direction_vector[1])
 
   @property
   def x(self):
