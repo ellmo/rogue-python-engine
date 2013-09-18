@@ -2,7 +2,9 @@ class CrawlerError(Exception):
   pass
 
 class NoPlayerStartError(CrawlerError):
-  pass
+  def __str__(self):
+        return repr('Loaded map has no player start.')
 
 class MultiplePlayerStartError(CrawlerError):
-  pass
+  def __str__(self):
+    return repr('Loaded map has multiple player starts.')
