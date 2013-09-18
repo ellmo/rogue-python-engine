@@ -28,7 +28,7 @@ def main():
       else:
         pass
     renderer.render()
-    print str(game_clock.get_fps())
+    #print str(game_clock.get_fps())
     renderer.raycast()
     pygame.display.update()
 
