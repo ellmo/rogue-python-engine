@@ -6,7 +6,6 @@ from errors import *
 class CrawlerMap(object):
   def __init__(self):
     self._tiles = []
-    self._items = []
     self._start_position = None
     for row in MAP_01:
       _tile_row = []
