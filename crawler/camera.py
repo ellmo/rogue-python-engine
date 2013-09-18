@@ -1,3 +1,5 @@
+import math
+
 class Camera(object):
   def __init__(self, position, direction_vector):
     self._x = int(position[0])
@@ -35,8 +37,15 @@ class Camera(object):
 
   @property
   def planex(self):
-    return float(0.66 * abs(self._diry))
+    return float(0.66 * -self._diry)
 
   @property
   def planey(self):
-    return float(0.66 * abs(self._dirx))
+    return float(0.66 * self._dirx)
+
+  def rotate(self, direction):
+    old_dirx = self.dirx
+    direction = direction * math.pi / 2
+    self._dirx = int(self._dirx * math.cos(direction) - self._diry * math.sin(direction))
+    self._diry = int(old_dirx * math.sin(direction) + self._diry * math.cos(direction))
+    print "camera now facing {0}, {1}".format(self._dirx, self._diry)

@@ -26,6 +26,18 @@ def main():
       elif event.type == KEYDOWN:
         if event.key == K_ESCAPE:
           return
+        elif event.key == K_w:
+          player.move(1, 0)
+        elif event.key == K_s:
+          player.move(-1, 0)
+        elif event.key == K_q:
+          player.move(0, 1)
+        elif event.key == K_e:
+          player.move(0, -1)
+        elif event.key == K_a:
+          player.rotate(-1)
+        elif event.key == K_d:
+          player.rotate(1)
       else:
         pass
     renderer.render()
