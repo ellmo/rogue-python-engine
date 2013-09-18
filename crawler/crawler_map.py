@@ -1,10 +1,9 @@
-import pdb
 import tile
 
 from locals import *
 from errors import *
 
-class Map(object):
+class CrawlerMap(object):
   def __init__(self):
     self._tiles = []
     self._items = []
@@ -14,14 +13,14 @@ class Map(object):
       for column in row:
         if column is 5:
           if self._start_position is None:
-            self._start_position = (MAP_01.index(row), row.index(column))
+            self._start_position = (row.index(column), MAP_01.index(row))
           else:
-            raise MultiplePlayerStartError('Loaded map has multiple player starts.')
+            raise MultiplePlayerStartError()
         _tile_to_append = tile.create_based_on_number(column)
         _tile_row.append(_tile_to_append)
       self._tiles.append(_tile_row)
     if self._start_position is None:
-      raise NoPlayerStartError('Loaded map has no player start.')
+      raise NoPlayerStartError()
 
   @property
   def tiles(self):
