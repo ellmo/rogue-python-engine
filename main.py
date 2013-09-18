@@ -7,7 +7,7 @@ from crawler.locals import *
 
 def main():
   pygame.init()
-  pygame.display.set_caption("Dung crawler")
+  pygame.display.set_caption("Rogue Python Engine")
 
   game_clock = pygame.time.Clock()
 
