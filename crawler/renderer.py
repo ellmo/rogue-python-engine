@@ -7,7 +7,7 @@ from locals import *
 
 class Renderer(object):
   def __init__(self, surface, crawler_map):
-    self._camera = camera.Camera(crawler_map.start_position, 0, -1, 0.66, 0.)
+    self._camera = camera.Camera(crawler_map.start_position, 0, -1)
     self._surface = surface
     self._map = crawler_map
     self._width = self._surface.get_width()

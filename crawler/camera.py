@@ -1,11 +1,9 @@
 class Camera(object):
-  def __init__(self, position, dirx, diry, planex, planey):
+  def __init__(self, position, dirx, diry):
     self._x = int(position[0])
     self._y = int(position[1])
     self._dirx = float(dirx)
     self._diry = float(diry)
-    self._planex = float(planex)
-    self._planey = float(planey)
 
   @property
   def x(self):
@@ -37,17 +35,8 @@ class Camera(object):
 
   @property
   def planex(self):
-    return self._planex
-  @planex.setter
-  def planex(self, value):
-    self._planex = value
+    return float(0.66 * abs(self._diry))
 
   @property
   def planey(self):
-    return self._planey
-  @planey.setter
-  def planey(self, value):
-    self._planey = value
-
-
-
+    return float(0.66 * abs(self._dirx))
