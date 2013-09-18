@@ -9,6 +9,8 @@ def main():
   pygame.init()
   pygame.display.set_caption("Dung crawler")
 
+  game_clock = pygame.time.Clock()
+
   window = pygame.display.set_mode(SCR_SIZE)
   screen = pygame.display.get_surface()
 
@@ -27,6 +29,7 @@ def main():
         pass
     renderer.render()
     print str(game_clock.get_fps())
+    renderer.raycast()
     pygame.display.update()
 
 if __name__ == '__main__':
