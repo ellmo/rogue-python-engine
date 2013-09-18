@@ -31,7 +31,7 @@ class Tile(object):
     self._texture = value
 
 def create_based_on_number(number):
-  if number == 0:
-    return Tile(True, False, texture.Texture())
-  else:
+  if number == 0 or number == 5:
     return Tile()
+  else:
+    return Tile(True, False, texture.Texture())
