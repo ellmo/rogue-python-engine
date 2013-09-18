@@ -34,8 +34,8 @@ class Renderer(object):
     for x_column in range(self._width):
       #calculate ray position and direction
       camera_x = float(2 * x_column / float(self._width) - 1) #x-coordinate in camera space
-      ray_posx = self._camera.x + 0.5
-      ray_posy = self._camera.y + 0.5
+      ray_posx = self._camera.x + 0.5 - (self._camera.dirx * 0.75)
+      ray_posy = self._camera.y + 0.5 - (self._camera.diry * 0.75)
       ray_dirx = self._camera.dirx + self._camera.planex * camera_x
       ray_diry = self._camera.diry + self._camera.planey * camera_x
       mapx = int(ray_posx)

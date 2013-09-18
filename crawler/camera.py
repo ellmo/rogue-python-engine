@@ -37,11 +37,11 @@ class Camera(object):
 
   @property
   def planex(self):
-    return float(0.66 * -self._diry)
+    return float(0.7 * -self._diry)
 
   @property
   def planey(self):
-    return float(0.66 * self._dirx)
+    return float(0.7 * self._dirx)
 
   def rotate(self, direction):
     old_dirx = self.dirx
