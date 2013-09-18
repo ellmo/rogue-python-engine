@@ -33,5 +33,9 @@ class Tile(object):
 def create_based_on_number(number):
   if number == 0 or number == 5:
     return Tile()
-  else:
+  elif number == 1:
     return Tile(True, False, texture.Texture())
+  elif number == 2:
+    return Tile(True, False, texture.Texture('res/colorstone.png'))
+  else:
+    return Tile(True, False, texture.Texture('res/wood.png'))
