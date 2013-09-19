@@ -1,4 +1,3 @@
-import pdb
 import pygame
 
 import texture

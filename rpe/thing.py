@@ -1,5 +1,3 @@
-import pdb
-
 class Thing(object):
   def __init__(self, name, blocking=False, sprite=None):
     self._name = name

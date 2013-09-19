@@ -1,4 +1,3 @@
-import pdb
 import texture
 
 from locals import *
