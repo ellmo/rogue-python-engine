@@ -7,7 +7,6 @@ class Player(object):
     self._x = crawler_map.start_position[0]
     self._y = crawler_map.start_position[1]
     self._camera = camera.Camera(crawler_map.start_position, direction_vector)
-    print "player is at {0}, {1}".format(self._x, self._y)
 
   @property
   def crawler_map(self):
@@ -49,7 +48,6 @@ class Player(object):
       self._y = new_y
       self._camera.x = new_x
       self._camera.y = new_y
-      print "player moved to {0}, {1}".format(self._x, self._y)
 
   def rotate(self, direction):
     self._camera.rotate(direction)

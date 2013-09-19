@@ -41,8 +41,6 @@ class Renderer(object):
       mapx = int(ray_posx)
       mapy = int(ray_posy)
 
-      # import pdb; pdb.set_trace()
-
       #length of ray from current position to next x or y-side
       side_dist_x = 0.
       side_dist_y = 0.
@@ -76,10 +74,9 @@ class Renderer(object):
         stepY = 1
         side_dist_y = (mapy + 1.0 - ray_posy) * delta_dist_y
 
-      # perform DDA
+      # perform Digital Differential Analysis
       while hit == 0:
         # jump to next map square, OR in x - direction, OR in y - direction
-        # import pdb; pdb.set_trace()
         if side_dist_x < side_dist_y:
           side_dist_x += delta_dist_x
           mapx += stepX
@@ -91,7 +88,7 @@ class Renderer(object):
         # Check if ray has hit a wall
         tile = self._map.tiles[mapy][mapx]
         if tile.solid:
-            hit = 1
+          hit = 1
       # Calculate distance projected on camera direction (oblique distance will give fisheye effect !)
       if (side == 0):
         perpendicular_wall_dist = (abs((mapx - ray_posx + (1 - stepX) / 2) / ray_dirx))
