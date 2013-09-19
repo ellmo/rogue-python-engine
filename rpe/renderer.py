@@ -56,23 +56,17 @@ class Renderer(object):
       mapy = int(self._camera.y)
       # initiate a Ray Object
       ray_obj = ray.Ray(self, ray_dirx, ray_diry)
-      tile = ray_obj.tile
-      perpendicular_wall_dist = ray_obj.perpendicular_wall_dist
-      side = ray_obj.side
-      wall_x = ray_obj.wall_x
-      line_height = ray_obj.line_height
-      draw_start = ray_obj.draw_start
 
       #x coordinate on the texture
-      tex_x = int(wall_x * float(TEX_SIZE))
-      if(side == 0 and ray_dirx > 0):
+      tex_x = int(ray_obj.wall_x * float(TEX_SIZE))
+      if(ray_obj.side == 0 and ray_dirx > 0):
         tex_x = TEX_SIZE - tex_x - 1;
-      if(side == 1 and ray_diry < 0):
+      if(ray_obj.side == 1 and ray_diry < 0):
         tex_x = TEX_SIZE - tex_x - 1;
 
-      if line_height > 1000:
-        line_height = 1000
-        draw_start = -1000 /2 + self._height/2
-      if not tile.texture is None:
-        img = tile.texture.converted if side == 0 else tile.texture.converted_darkened
-        self._surface.blit(pygame.transform.scale(img[tex_x], (1, line_height)), (x_column, draw_start))
+      if ray_obj.line_height > 1000:
+        ray_obj.line_height = 1000
+        ray_obj.draw_start = -1000 /2 + self._height/2
+      if not ray_obj.tile.texture is None:
+        img = ray_obj.tile.texture.converted if ray_obj.side == 0 else ray_obj.tile.texture.converted_darkened
+        self._surface.blit(pygame.transform.scale(img[tex_x], (1, ray_obj.line_height)), (x_column, ray_obj.draw_start))
