@@ -7,22 +7,22 @@ class Ray(object):
   def __init__(self, renderer, x_column):
     self._renderer = renderer
     self._x_column = x_column
-    self._camera = renderer.camera
     self._map = renderer.rpe_map
     # get the directional vector of the ray
-    camera_x = float(2 * x_column / float(self._renderer.width) - 1) # x-coordinate in camera space
-    self._ray_dirx = self._camera.dirx + self._camera.planex * camera_x
-    self._ray_diry = self._camera.diry + self._camera.planey * camera_x
+    camera = renderer.camera
+    cam_space_x = float(2 * x_column / float(self._renderer.width) - 1) # x-coordinate in camera space
+    self._ray_dirx = camera.dirx + camera.planex * cam_space_x
+    self._ray_diry = camera.diry + camera.planey * cam_space_x
     if self._ray_dirx == 0: self._ray_dirx = 0.00001
     if self._ray_diry == 0: self._ray_diry = 0.00001
     # set the anchor point of the camera and then puch it back a little
     # so that it sees floor of the current cell.
-    self._ray_posx = self._camera.x + 0.5 - (self._camera.dirx * 0.75)
-    self._ray_posy = self._camera.y + 0.5 - (self._camera.diry * 0.75)
+    self._ray_posx = camera.x + 0.5 - (camera.dirx * 0.75)
+    self._ray_posy = camera.y + 0.5 - (camera.diry * 0.75)
     self._delta_dist_x = math.sqrt(1 + (self._ray_diry**2) / (self._ray_dirx**2))
     self._delta_dist_y = math.sqrt(1 + (self._ray_dirx**2) / (self._ray_diry**2))
-    self._mapx = int(self._camera.x)
-    self._mapy = int(self._camera.y)
+    self._mapx = int(camera.x)
+    self._mapy = int(camera.y)
     #
     self._hit = 0  # has the ray hit the wall?
     self._side = 0 # which side NS or WE was hit?
