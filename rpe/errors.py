@@ -1,10 +1,10 @@
-class CrawlerError(Exception):
+class RpeError(Exception):
   pass
 
-class NoPlayerStartError(CrawlerError):
+class NoPlayerStartError(RpeError):
   def __str__(self):
         return repr('Loaded map has no player start.')
 
-class MultiplePlayerStartError(CrawlerError):
+class MultiplePlayerStartError(RpeError):
   def __str__(self):
     return repr('Loaded map has multiple player starts.')

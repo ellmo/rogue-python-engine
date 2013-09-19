@@ -1,5 +1,5 @@
 import camera
-import crawler_map
+import rpe_map
 import errors
 import locals
 import player

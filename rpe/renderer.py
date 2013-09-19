@@ -2,14 +2,14 @@ import pygame
 import math
 
 import camera
-import crawler_map
+import rpe_map
 from locals import *
 
 class Renderer(object):
-  def __init__(self, surface, crawler_map, camera):
+  def __init__(self, surface, rpe_map, camera):
     self._camera = camera
     self._surface = surface
-    self._map = crawler_map
+    self._map = rpe_map
     self._width = self._surface.get_width()
     self._height = self._surface.get_height()
     self._background = pygame.transform.scale(

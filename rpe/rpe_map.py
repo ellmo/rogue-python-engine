@@ -4,7 +4,7 @@ from locals import *
 from errors import *
 from file_ops import *
 
-class CrawlerMap(object):
+class RpeMap(object):
   def __init__(self, map_path):
     parsed_map = parse_to_lists(map_path)
     self._tiles = []

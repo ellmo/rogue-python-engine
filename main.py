@@ -1,9 +1,9 @@
 import sys
 import pygame
-import crawler
+import rpe
 
 from pygame.locals import *
-from crawler.locals import *
+from rpe.locals import *
 
 def main():
   pygame.init()
@@ -14,9 +14,9 @@ def main():
   window = pygame.display.set_mode(SCR_SIZE)
   screen = pygame.display.get_surface()
 
-  map_01 = crawler.crawler_map.CrawlerMap('res/map01.rpe')
-  player = crawler.player.Player(map_01, (0, -1))
-  renderer = crawler.renderer.Renderer(screen, map_01, player.camera)
+  map_01 = rpe.rpe_map.RpeMap('res/map01.rpe')
+  player = rpe.player.Player(map_01, (0, -1))
+  renderer = rpe.renderer.Renderer(screen, map_01, player.camera)
 
   while True:
     game_clock.tick(60)

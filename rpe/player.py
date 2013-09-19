@@ -1,16 +1,16 @@
-import crawler_map
+import rpe_map
 import camera
 
 class Player(object):
-  def __init__(self, crawler_map, direction_vector):
-    self._crawler_map = crawler_map
-    self._x = crawler_map.start_position[0]
-    self._y = crawler_map.start_position[1]
-    self._camera = camera.Camera(crawler_map.start_position, direction_vector)
+  def __init__(self, rpe_map, direction_vector):
+    self._rpe_map = rpe_map
+    self._x = rpe_map.start_position[0]
+    self._y = rpe_map.start_position[1]
+    self._camera = camera.Camera(rpe_map.start_position, direction_vector)
 
   @property
-  def crawler_map(self):
-    return self._crawler_map
+  def rpe_map(self):
+    return self._rpe_map
 
   @property
   def camera(self):
@@ -43,7 +43,7 @@ class Player(object):
     else:
       new_x = self._x + self.diry * left
       new_y = self._y - self.dirx * left
-    if self._crawler_map.tiles[int(new_y)][int(new_x)].walkthru:
+    if self._rpe_map.tiles[int(new_y)][int(new_x)].walkthru:
       self._x = new_x
       self._y = new_y
       self._camera.x = new_x
