@@ -1,5 +1,7 @@
 import math
 
+from locals import *
+
 class Ray(object):
   def __init__(self, renderer, ray_dirx, ray_diry):
     self._renderer = renderer
@@ -27,12 +29,13 @@ class Ray(object):
     self._wall_x = 0. # where exactly the wall was hit horizontally?
     self._line_height = 0. # how tall is the portion of the wall hit by ray?
     self._draw_start = 0. # where on the screen does the vertical line start and end?
-    self._draw_end = 0.
+    self._texture_x = 0. # what vertical part of the texture are we talking about?
     #
     self.__perform_dda()
     self.__calculate_wall_distance()
     self.__calculate_wall_x()
     self.__calculate_wall_y()
+    self.__calculate_texture_x()
 
   @property
   def tile(self):
@@ -59,8 +62,12 @@ class Ray(object):
       return self._draw_start
 
   @property
-  def draw_end(self):
-      return self._draw_end
+  def texture_x(self):
+      return self._texture_x
+  @texture_x.setter
+  def texture_x(self, value):
+      self._texture_x = value
+
 
   def __perform_dda(self):
     # what direction to step in x or y-direction (either +1 or -1)
@@ -119,3 +126,14 @@ class Ray(object):
     # Calculate height of line to draw on surface and the lowest pixel to fill in current stripe
     self._line_height = abs(int(self._renderer.height / self._perpendicular_wall_dist))
     self._draw_start = -self._line_height / 2 + self._renderer.height / 2
+    if self._line_height > 1000:
+      self._line_height = 1000
+      self._draw_start = -1000 /2 + self._renderer.height/2
+
+  def __calculate_texture_x(self):
+    # Calculate which horizontal part (offser) of the texture to draw
+    self._texture_x = int(self._wall_x * float(TEX_SIZE))
+    if(self._side == 0 and self._ray_dirx > 0):
+      self._texture_x = TEX_SIZE - self._texture_x - 1;
+    if(self._side == 1 and self._ray_diry < 0):
+      self._texture_x = TEX_SIZE - self._texture_x - 1;
