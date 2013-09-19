@@ -1,9 +1,9 @@
 import camera
-import rpe_map
 import errors
 import locals
 import player
-import renderer
+import rendering
+import rpe_map
 import sprite
 import texture
 import thing
