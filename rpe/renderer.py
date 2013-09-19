@@ -41,23 +41,14 @@ class Renderer(object):
 
   def render(self):
     self.__cast_background()
-    self.__raycast()
+    self.__cast_rays()
 
   def __cast_background(self):
     self._surface.blit(self._background, (0, 0))
 
-  def __raycast(self):
+  def __cast_rays(self):
     # based on http://lodev.org/cgtutor/raycasting.html
     for x_column in range(self._width):
-      # calculate ray position and direction
-      camera_x = float(2 * x_column / float(self._width) - 1) # x-coordinate in camera space
-      ray_dirx = self._camera.dirx + self._camera.planex * camera_x
-      ray_diry = self._camera.diry + self._camera.planey * camera_x
-      if ray_dirx == 0: ray_dirx = 0.00001
-      if ray_diry == 0: ray_diry = 0.00001
       # initiate a Ray Object
-      ray_obj = ray.Ray(self, ray_dirx, ray_diry)
-
-      if not ray_obj.tile.texture is None:
-        img = ray_obj.tile.texture.converted if ray_obj.side == 0 else ray_obj.tile.texture.converted_darkened
-        self._surface.blit(pygame.transform.scale(img[ray_obj.texture_x], (1, ray_obj.line_height)), (x_column, ray_obj.draw_start))
+      ray_obj = ray.Ray(self, x_column)
+      ray_obj.render_texture()
