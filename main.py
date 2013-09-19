@@ -14,7 +14,7 @@ def main():
   window = pygame.display.set_mode(SCR_SIZE)
   screen = pygame.display.get_surface()
 
-  map_01 = crawler.crawler_map.CrawlerMap()
+  map_01 = crawler.crawler_map.CrawlerMap('res/map01.rpe')
   player = crawler.player.Player(map_01, (0, -1))
   renderer = crawler.renderer.Renderer(screen, map_01, player.camera)
 

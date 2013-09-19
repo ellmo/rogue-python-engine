@@ -30,12 +30,12 @@ class Tile(object):
   def texture(self, value):
     self._texture = value
 
-def create_based_on_number(number):
-  if number == 0 or number == 5:
-    return Tile()
-  elif number == 1:
+def create_based_on_char(char):
+  if char == '1':
     return Tile(True, False, texture.Texture())
-  elif number == 2:
+  elif char == '2':
     return Tile(True, False, texture.Texture('res/colorstone.png'))
-  else:
+  elif char == '3':
     return Tile(True, False, texture.Texture('res/wood.png'))
+  else:
+    return Tile()
