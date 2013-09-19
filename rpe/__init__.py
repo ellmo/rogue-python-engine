@@ -2,8 +2,7 @@ import camera
 import errors
 import locals
 import player
-import ray
-import renderer
+import rendering
 import rpe_map
 import sprite
 import texture

@@ -4,6 +4,7 @@ import rpe
 
 from pygame.locals import *
 from rpe.locals import *
+from rpe.rendering import *
 
 def main():
   pygame.init()
@@ -16,7 +17,7 @@ def main():
 
   map_01 = rpe.rpe_map.RpeMap('res/map01.rpe')
   player = rpe.player.Player(map_01, (0, -1))
-  renderer = rpe.renderer.Renderer(screen, map_01, player.camera)
+  _renderer = renderer.Renderer(screen, map_01, player.camera)
 
   while True:
     game_clock.tick(60)
@@ -40,7 +41,7 @@ def main():
           player.rotate(1)
       else:
         pass
-    renderer.render()
+    _renderer.render()
     #print str(game_clock.get_fps())
     pygame.display.update()
 

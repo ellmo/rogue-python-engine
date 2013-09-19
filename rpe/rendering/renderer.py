@@ -1,11 +1,7 @@
 import pygame
 import math
 
-import camera
-import rpe_map
 import ray
-
-from time import sleep
 
 class Renderer(object):
   def __init__(self, surface, rpe_map, camera):

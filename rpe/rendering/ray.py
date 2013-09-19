@@ -1,7 +1,7 @@
 import math
 import pygame
 
-from locals import *
+from ..locals import *
 
 class Ray(object):
   def __init__(self, renderer, x_column):
