@@ -8,6 +8,8 @@ from rpe.rendering import *
 
 def main():
   pygame.init()
+  rpe_icon = pygame.transform.scale(pygame.image.load('res/rpe-logo.png'), (128, 128))
+  pygame.display.set_icon(rpe_icon)
   pygame.display.set_caption("Rogue Python Engine")
 
   game_clock = pygame.time.Clock()
