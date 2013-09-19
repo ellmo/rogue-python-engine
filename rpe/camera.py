@@ -48,4 +48,3 @@ class Camera(object):
     direction = direction * math.pi / 2
     self._dirx = int(self._dirx * math.cos(direction) - self._diry * math.sin(direction))
     self._diry = int(old_dirx * math.sin(direction) + self._diry * math.cos(direction))
-    print "camera now facing {0}, {1}".format(self._dirx, self._diry)
