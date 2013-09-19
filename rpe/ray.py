@@ -81,7 +81,7 @@ class Ray(object):
       self._step_y = 1
       self._side_dist_y = (self._mapy + 1.0 - self._ray_posy) * self._delta_dist_y
     self.__detect_hit()
-    # Calculate distance projected on camera direction (oblique distance will give fisheye effect !)
+
 
   def __detect_hit(self):
     while self._hit is 0:
@@ -100,6 +100,7 @@ class Ray(object):
         self._hit = 1
 
   def __calculate_wall_distance(self):
+    # Calculate distance projected on camera direction (oblique distance will give fisheye effect !)
     if (self._side == 0):
       self._perpendicular_wall_dist = (abs((self._mapx - self._ray_posx + (1 - self._step_x) / 2) / self._ray_dirx))
     else:
@@ -107,6 +108,7 @@ class Ray(object):
     if self._perpendicular_wall_dist == 0: self._perpendicular_wall_dist = 0.000001
 
   def __calculate_wall_x(self):
+    # Calculate which horizontal part of the wall was hit
     if (self._side == 1):
       self._wall_x = self._ray_posx + ((self._mapy - self._ray_posy + (1 - self._step_y) / 2) / self._ray_diry) * self._ray_dirx
     else:
@@ -114,8 +116,6 @@ class Ray(object):
     self._wall_x -= math.floor((self._wall_x));
 
   def __calculate_wall_y(self):
-    # Calculate height of line to draw on surface
+    # Calculate height of line to draw on surface and the lowest pixel to fill in current stripe
     self._line_height = abs(int(self._renderer.height / self._perpendicular_wall_dist))
-    # calculate lowest and highest pixel to fill in current stripe
     self._draw_start = -self._line_height / 2 + self._renderer.height / 2
-    self._draw_end = self._line_height / 2 + self._renderer.height / 2
