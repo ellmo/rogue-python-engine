@@ -1,4 +1,5 @@
 import tile
+import thing
 
 from locals import *
 from errors import *
@@ -12,12 +13,14 @@ class RpeMap(object):
     for row in parsed_map:
       _tile_row = []
       for column in row:
+        _tile_to_append = tile.create_based_on_char(column)
         if column is 's':
           if self._start_position is None:
             self._start_position = (row.index(column), parsed_map.index(row))
           else:
             raise MultiplePlayerStartError()
-        _tile_to_append = tile.create_based_on_char(column)
+        elif column is 'b':
+          _tile_to_append.things.append(thing.Thing())
         _tile_row.append(_tile_to_append)
       self._tiles.append(_tile_row)
     if self._start_position is None:

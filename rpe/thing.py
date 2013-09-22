@@ -1,5 +1,7 @@
+import sprite
+
 class Thing(object):
-  def __init__(self, name, blocking=False, sprite=None):
+  def __init__(self, name='barrel', blocking=False, sprite=sprite.Sprite()):
     self._name = name
     self._blocking = blocking
     self._sprite = sprite
@@ -15,4 +17,3 @@ class Thing(object):
   @property
   def sprite(self):
     return self._sprite
-
