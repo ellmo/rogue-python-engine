@@ -9,6 +9,7 @@ class RpeMap(object):
   def __init__(self, map_path):
     parsed_map = parse_to_lists(map_path)
     self._tiles = []
+    self._things = []
     self._start_position = None
     for row in parsed_map:
       _tile_row = []
@@ -21,6 +22,7 @@ class RpeMap(object):
             raise MultiplePlayerStartError()
         elif column is 'b':
           _tile_to_append.things.append(thing.Thing())
+          self._things.append(_tile_to_append)
         _tile_row.append(_tile_to_append)
       self._tiles.append(_tile_row)
     if self._start_position is None:
@@ -29,6 +31,10 @@ class RpeMap(object):
   @property
   def tiles(self):
     return self._tiles
+
+  @property
+  def things(self):
+    return self._things
 
   @property
   def start_position(self):
