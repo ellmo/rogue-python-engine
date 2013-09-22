@@ -43,7 +43,7 @@ class Player(object):
     else:
       new_x = self._x + self.diry * left
       new_y = self._y - self.dirx * left
-    if self._rpe_map.tiles[int(new_y)][int(new_x)].walkthru:
+    if not self._rpe_map.tiles[int(new_y)][int(new_x)].solid:
       self._x = new_x
       self._y = new_y
       self._camera.x = new_x
