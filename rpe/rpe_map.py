@@ -6,37 +6,37 @@ from errors import *
 from file_ops import *
 
 class RpeMap(object):
-  def __init__(self, map_path):
-    parsed_map = parse_to_lists(map_path)
-    self._tiles = []
-    self._things = []
-    self._start_position = None
-    for row in parsed_map:
-      _tile_row = []
-      for column in row:
-        _tile_to_append = tile.create_based_on_char(column)
-        if column is 's':
-          if self._start_position is None:
-            self._start_position = (row.index(column), parsed_map.index(row))
-          else:
-            raise MultiplePlayerStartError()
-        elif column is 'b':
-          _tile_to_append.things.append(thing.Thing())
-          self._things.append(_tile_to_append)
-        _tile_row.append(_tile_to_append)
-      self._tiles.append(_tile_row)
-    if self._start_position is None:
-      raise NoPlayerStartError()
+    def __init__(self, map_path):
+        parsed_map = parse_to_lists(map_path)
+        self._tiles = []
+        self._things = []
+        self._start_position = None
+        for row in parsed_map:
+            _tile_row = []
+            for column in row:
+                _tile_to_append = tile.create_based_on_char(column)
+                if column is 's':
+                    if self._start_position is None:
+                        self._start_position = (row.index(column), parsed_map.index(row))
+                    else:
+                        raise MultiplePlayerStartError()
+                elif column is 'b':
+                    _tile_to_append.things.append(thing.Thing())
+                    self._things.append(_tile_to_append)
+                _tile_row.append(_tile_to_append)
+            self._tiles.append(_tile_row)
+        if self._start_position is None:
+            raise NoPlayerStartError()
 
-  @property
-  def tiles(self):
-    return self._tiles
+    @property
+    def tiles(self):
+        return self._tiles
 
-  @property
-  def things(self):
-    return self._things
+    @property
+    def things(self):
+        return self._things
 
-  @property
-  def start_position(self):
-      return self._start_position
+    @property
+    def start_position(self):
+            return self._start_position
 
