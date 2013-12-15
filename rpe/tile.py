@@ -7,6 +7,8 @@ class Tile(object):
         self._solid = solid
         self._texture = texture
         self._things = []
+        self._x = None
+        self._y = None
 
     @property
     def solid(self):
@@ -35,6 +37,22 @@ class Tile(object):
     @things.setter
     def things(self, value):
             self._things = value
+
+    @property
+    def x(self):
+        return self._x
+    @x.setter
+    def x(self, value):
+        self._x = value
+
+    @property
+    def y(self):
+        return self._y
+    @y.setter
+    def y(self, value):
+        self._y = value
+
+
 
 def create_based_on_char(char):
     if char == '1':

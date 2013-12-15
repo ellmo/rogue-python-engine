@@ -62,7 +62,7 @@ class Renderer(object):
     def __compare_thing_distance(thing1, thing2):
         thing1_dist = math.sqrt((thing1[0] -self._camera.x) ** 2 + (thing1[1] -self._camera.y) ** 2)
         thing2_dist = math.sqrt((s2[0] -self._camera.x) ** 2 + (thing2[1] -self._camera.y) ** 2)
-        if thing1_dist>thing2_dist:
+        if thing1_dist > thing2_dist:
             return -1
         elif thing1_dist == thing2_dist:
             return 0

@@ -11,13 +11,15 @@ class RpeMap(object):
         self._tiles = []
         self._things = []
         self._start_position = None
-        for row in parsed_map:
+        for y, row in zip(range(len(parsed_map)), parsed_map):
             _tile_row = []
-            for column in row:
+            for x, column in enumerate(row):
                 _tile_to_append = tile.create_based_on_char(column)
+                _tile_to_append.x = x
+                _tile_to_append.y = y
                 if column is 's':
                     if self._start_position is None:
-                        self._start_position = (row.index(column), parsed_map.index(row))
+                        self._start_position = (x, y)
                     else:
                         raise MultiplePlayerStartError()
                 elif column is 'b':
@@ -38,5 +40,5 @@ class RpeMap(object):
 
     @property
     def start_position(self):
-            return self._start_position
+        return self._start_position
 
