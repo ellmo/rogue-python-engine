@@ -23,7 +23,7 @@ class RpeMap(object):
                     else:
                         raise MultiplePlayerStartError()
                 elif column is 'b':
-                    _tile_to_append.things.append(thing.Thing())
+                    _tile_to_append.thing = thing.Thing()
                     self._things.append(_tile_to_append)
                 _tile_row.append(_tile_to_append)
             self._tiles.append(_tile_row)

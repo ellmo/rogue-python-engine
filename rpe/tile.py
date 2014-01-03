@@ -1,4 +1,5 @@
 import texture
+import thing
 
 from locals import *
 
@@ -6,7 +7,7 @@ class Tile(object):
     def __init__(self, solid=False, seethru=True, texture=None):
         self._solid = solid
         self._texture = texture
-        self._things = []
+        self._thing = None
         self._x = None
         self._y = None
 
@@ -31,12 +32,19 @@ class Tile(object):
     def texture(self, value):
         self._texture = value
 
+    # @property
+    # def things(self):
+    #         return self._things
+    # @things.setter
+    # def things(self, value):
+    #         self._things = value
+
     @property
-    def things(self):
-            return self._things
-    @things.setter
-    def things(self, value):
-            self._things = value
+    def thing(self):
+        return self._thing
+    @thing.setter
+    def thing(self, value):
+        self._thing = value
 
     @property
     def x(self):
