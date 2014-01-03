@@ -59,7 +59,7 @@ Based on: [python 3.3 with pygame under mac os lion / mountain lion / mavericks]
 3. **Update your brew**: `brew update`
 4. **Install Python** (optional)
 
-	You can now install a desired version of Python from homebrew, but a more _version-managing-oriented_ approach is reccomended. I myself use [PythonBrew](https://github.com/utahta/pythonbrew) and [VirtualEnv](https://pypi.python.org/pypi/virtualenv). That said, the described method should work with whichever version your system has installed (OSX 10.8 and 10.9 come with 2.7.5) if you don't want to install different versions.
+	You can now install a desired version of Python from homebrew, but a more _version-managing-oriented_ approach is reccomended. I myself use [Pyenv](https://github.com/yyuu/pyenv), which is an exact rbenv clone, but for Python. That said, the described method should work with whichever version your system has installed (OSX 10.8 and 10.9 come with 2.7.5) if you don't want to install different versions.
 5. **You need few tools to compile PyGame**
 
 	```
