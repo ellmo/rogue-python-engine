@@ -46,7 +46,10 @@ class Renderer(object):
     def render(self):
         self.__cast_background()
         self.__cast_rays()
-        self._map.things
+        self.__cast_things()
+
+    def tile_distance(self, tile):
+        return math.sqrt((tile.x -self._camera.x) ** 2 + (tile.y -self._camera.y) ** 2)
 
     def __cast_background(self):
         self._surface.blit(self._background, (0, 0))
@@ -59,12 +62,5 @@ class Renderer(object):
             ray_obj.render_texture()
             self._zbuffer.append(ray_obj.wall_distance)
 
-    def __compare_thing_distance(thing1, thing2):
-        thing1_dist = math.sqrt((thing1[0] -self._camera.x) ** 2 + (thing1[1] -self._camera.y) ** 2)
-        thing2_dist = math.sqrt((s2[0] -self._camera.x) ** 2 + (thing2[1] -self._camera.y) ** 2)
-        if thing1_dist > thing2_dist:
-            return -1
-        elif thing1_dist == thing2_dist:
-            return 0
-        else:
-            return 1
+    def __cast_things(self):
+        sorted_things = sorted(self._map.things, key=self.tile_distance)
