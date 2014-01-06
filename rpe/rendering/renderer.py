@@ -66,7 +66,7 @@ class Renderer(object):
 
     def __cast_things(self):
         sorted_things = sorted(self._map.things, key=self.tile_distance)
-        for tile in sorted_things:
+        for tile in reversed(sorted_things):
             sprite_x = tile.x - self.camera.x + (0.5 * self.camera.dirx)
             sprite_y = tile.y - self.camera.y + (0.5 * self.camera.diry)
             # creating
