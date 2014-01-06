@@ -39,5 +39,6 @@ class Texture(object):
         for i in range(image.get_width()):
             s = pygame.Surface((1, image.get_height())).convert()
             s.blit(image, (-i, 0))
+            s.set_colorkey((0,0,0)) ## this means full black color is now transparent
             table.append(s)
         return table
