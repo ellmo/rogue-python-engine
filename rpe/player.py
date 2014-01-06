@@ -44,12 +44,6 @@ class Player(object):
             new_x = self._x + self.diry * left
             new_y = self._y - self.dirx * left
         _new_tile = self._rpe_map.tiles[int(new_y)][int(new_x)]
-        print "new tile: " + str(_new_tile)
-        print "  x:      " + str(new_x)
-        print "  y:      " + str(new_y)
-        print "  thing: +" + str(_new_tile.thing)
-        if _new_tile.thing:
-            print "  block: +" + str(_new_tile.thing.blocking)
         if not (_new_tile.solid or (_new_tile.thing and _new_tile.thing.blocking)):
             self._x = new_x
             self._y = new_y
