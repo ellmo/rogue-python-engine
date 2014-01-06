@@ -16,6 +16,7 @@ def main():
 
     window = pygame.display.set_mode(SCR_SIZE)
     screen = pygame.display.get_surface()
+    needs_refresh = True
 
     map_01 = rpe.rpe_map.RpeMap('res/map01.rpe')
     player = rpe.player.Player(map_01, (0, -1))
@@ -41,9 +42,12 @@ def main():
                     player.rotate(-1)
                 elif event.key == K_d:
                     player.rotate(1)
+                needs_refresh = True
             else:
                 pass
-        _renderer.render()
+        if needs_refresh:
+            _renderer.render()
+            needs_refresh = False
         # print str(game_clock.get_fps())
         pygame.display.update()
 
