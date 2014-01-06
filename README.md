@@ -1,7 +1,7 @@
 
 
-#Rogue-Python Engine 0.0.3
-![RPE](http://i.imgur.com/T8KXqKn.png) ![RPEss](http://i.imgur.com/aatWCTR.png)
+#Rogue-Python Engine 0.0.4
+![RPE](http://i.imgur.com/T8KXqKn.png) ![RPEss](https://i.imgur.com/KS6GHWY.png)
 
 #####A Simple ray-casting engine built with Python and PyGame.
 
@@ -33,7 +33,8 @@ This code is distributed under GPL v3 License.
 
 ####Current version features:
 
-* **Raycasting**
+* **Raycasting Textured Walls**
+* **Raycasting Transparent Sprites**
 * **Movement and roation**
 * **Collision detection**
 * **Loading maps from textfiles**
