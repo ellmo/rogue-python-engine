@@ -1,9 +1,9 @@
 
 
-#Rogue-Python Engine 0.0.4
+# Rogue-Python Engine 0.0.4
 ![RPE](http://i.imgur.com/T8KXqKn.png) ![RPEss](https://i.imgur.com/KS6GHWY.png)
 
-#####A Simple ray-casting engine built with Python and PyGame.
+##### A Simple ray-casting engine built with Python and PyGame.
 
 Designed to be used for writing retro-styled FPP roguelike dungeon crawler games, like *[Dungeon Master](http://www.dungeon-master.com/)* series or the newer *[Legend of Grimrock](http://www.grimrock.net/)*.
 
@@ -11,16 +11,16 @@ This program is mainly written for educational purposes. The raycasting algorith
 
 The engine intentionally allows grid-based movement only! If you're looking for a more Wolf3D-like movement look no further than [mlambir's PygameFPS](https://github.com/mlambir/Pygame-FPS).
 
-##Legal:
+## Legal:
 This code is distributed under GPL v3 License.
 
-##Credits:
+## Credits:
 
 * [mlambir's PygameFPS](https://github.com/mlambir/Pygame-FPS)
 * [raycasting tutorial on lodev.org](http://lodev.org/cgtutor/raycasting.html)
 * [raycasting tutorial on permadi.com](http://www.permadi.com/tutorial/raycast/index.html)
 
-##Dependencies:
+## Dependencies:
 *__May__ work with older versions, but these are what I used:*
 
 * CPython 2.7.5
@@ -31,7 +31,7 @@ This code is distributed under GPL v3 License.
 
 ===
 
-####Current version features:
+#### Current version features:
 
 * **Raycasting Textured Walls**
 * **Raycasting Transparent Sprites**
@@ -39,7 +39,7 @@ This code is distributed under GPL v3 License.
 * **Collision detection**
 * **Loading maps from textfiles**
 
-####Keys:
+#### Keys:
 
 Movement keys are hardcoded (as long as anything is hardcoded in Python's code) and go like this:
 
@@ -108,4 +108,4 @@ Based on: [python 3.3 with pygame under mac os lion / mountain lion / mavericks]
 
 =====
 
-######-- ellmo 2013
+###### -- ellmo 2013
